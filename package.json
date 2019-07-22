@@ -1,0 +1,32 @@
+{
+  "name": "chrisbeaumont-website-next",
+  "version": "1.0.0",
+  "description": "Next React Frontend for chrisbeaumont.com",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "now-build": "next build"
+  },
+  "author": "Chris Beaumont",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "bootstrap": "^4.3.1",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "formik": "^1.5.8",
+    "history": "^4.9.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.0.3",
+    "react": "^16.8.5",
+    "react-crossfade-image": "^1.1.1",
+    "react-css-transition-replace": "^3.0.3",
+    "react-dom": "^16.8.5",
+    "react-ga": "^2.6.0",
+    "react-loader-spinner": "^2.3.0",
+    "react-transition-group": "^1.2.1",
+    "reactstrap": "^7.1.0"
+  }
+}
