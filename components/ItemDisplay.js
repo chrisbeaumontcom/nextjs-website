@@ -34,7 +34,6 @@ class ItemDisplay extends React.Component {
             prevnext,
             loaded: 1
           });
-          console.log(prevnext);
           foundItem = true;
           break;
         }
@@ -74,10 +73,9 @@ class ItemDisplay extends React.Component {
     try {
       const res = await fetch(sConfig.apiHost + "?id=" + id);
       const data = await res.json();
-      if (!!data && !data.error && !!data[0].name) {
-        // const title = data[0].name;
+      if (!!data && !!data.name) {
         this.setState({
-          item: data[0],
+          item: data,
           loaded: 1
         });
       } else {
@@ -89,12 +87,13 @@ class ItemDisplay extends React.Component {
     } catch (e) {
       this.setState({
         loaded: 2,
-        message: "Network error..."
+        message: e.message
       });
     }
   }
 
   componentDidMount() {
+    // console.log("mount: " + this.props.itemid);
     const isLocal = this.getLocalData(this.props.itemid);
     if (!isLocal) {
       this.getRemoteData(this.props.itemid);

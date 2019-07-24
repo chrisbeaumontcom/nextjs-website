@@ -16,6 +16,12 @@ class Item extends React.Component {
     // const createID = (name, id) => {
     //   return name.toLowerCase().replace(/ /g, "-") + "-" + id;
     // };
+    // <div className="enlarge">
+    //    <a href={data.url}>
+    //       Examine image&nbsp;
+    //       <img src="/static/img/mag.png" alt="Click to view full image" />
+    //     </a>
+    // </div>
     const urlslug = itemSlug(data.name, data.id);
     return (
       <div className="itembox">
@@ -28,12 +34,6 @@ class Item extends React.Component {
           </a>
         </Link>
 
-        <div className="enlarge">
-          <a href={data.url}>
-            Examine image&nbsp;
-            <img src="/static/img/mag.png" alt="Click to view full image" />
-          </a>
-        </div>
         <div className="textbox">
           <h4>{data.name}</h4>
 

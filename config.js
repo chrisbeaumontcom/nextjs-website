@@ -1,4 +1,4 @@
 const sConfig = {
-  apiHost: "https://cb-api.chrisbeaumont.now.sh/api"
+  apiHost: "https://api.chrisbeaumont.com/api"
 };
 export default sConfig;

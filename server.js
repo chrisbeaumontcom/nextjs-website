@@ -1,5 +1,11 @@
 const express = require("express");
 const next = require("next");
+function readItemSlug(slug) {
+  const ar = slug.split("-");
+  const tempid = ar[ar.length - 1];
+  const id = isNaN(tempid) ? 0 : tempid;
+  return id;
+}
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -18,7 +24,9 @@ app
 
     server.get("/detail/:id", (req, res) => {
       const actualPage = "/detail";
+      // const parsedId = readItemSlug();
       const queryParams = { id: req.params.id };
+
       app.render(req, res, actualPage, queryParams);
     });
 

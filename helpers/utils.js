@@ -15,3 +15,7 @@ export function readItemSlug(slug) {
   const id = isNaN(tempid) ? 0 : tempid;
   return id;
 }
+
+export function slugToTitle(slug) {
+  return slug.replace(/-/g, " ");
+}
