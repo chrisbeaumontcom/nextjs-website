@@ -5,3 +5,4 @@ variables.env
 test/
 park/
 now.json
+.next/
