@@ -94,7 +94,7 @@ ambitions for their work.</p>
 title="Link to web site">Inaugural Bayside Acquisitive Art
 Prize</a><br />
  Exhibition 2 May - 13 June 2015<br />
- The Gallery @ BACC, cnr Carpenter &amp; Wilson Street, Brighton,
+ The Gallery, cnr Carpenter &amp; Wilson Street, Brighton,
 VIC 3186</p>
 
 <hr/>
@@ -105,7 +105,7 @@ VIC 3186</p>
 
 <h2>Commissioned works</h2>
 
-<h4>Georgie's Harvest @South Melbourne Market</h4>
+<h4>Georgie's Harvest - South Melbourne Market</h4>
 
 <p>Commissioned work for an original oil painting to be reproduced for the principle signage at the market shop.<br />
  <a href="https://southmelbournemarket.com.au/traders/georgies-harvest/" title="Link to Market page" target="_blank">Georgie's Harvest market web page</a></p>
