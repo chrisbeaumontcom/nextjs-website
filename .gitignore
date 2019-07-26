@@ -4,6 +4,5 @@ node_modules/
 variables.env
 test/
 park/
-now.json
 .next/
 .nowignore
