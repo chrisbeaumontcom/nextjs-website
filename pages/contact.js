@@ -1,6 +1,5 @@
 import Layout from "../components/Layout/Layout";
 import ContactForm from "../components/ContactForm";
-import content from "../content/contact";
 
 const pageTitle = "Contact";
 
