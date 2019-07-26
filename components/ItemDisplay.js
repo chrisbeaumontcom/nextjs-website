@@ -1,7 +1,8 @@
-import sConfig from "../config";
+// import sConfig from "../config";
 import { itemSlug } from "../helpers/utils";
 import PrevAndNext from "./PrevAndNext";
 import Link from "next/link";
+const gallery = require("../data/gallery.json");
 
 class ItemDisplay extends React.Component {
   constructor(props) {
@@ -50,6 +51,15 @@ class ItemDisplay extends React.Component {
     return found;
   };
 
+  findInGallery = (items, id) => {
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].id == id) {
+        return items[i];
+      }
+    }
+    return null;
+  };
+
   getLocalData = itemid => {
     try {
       const data = sessionStorage.getItem("app-gallery-data");
@@ -69,10 +79,32 @@ class ItemDisplay extends React.Component {
     return false;
   };
 
-  async getRemoteData(id) {
+  // async getRemoteData(id) {
+  //   try {
+  //     const res = await fetch(sConfig.apiHost + "?id=" + id);
+  //     const data = await res.json();
+  //     if (!!data && !!data.name) {
+  //       this.setState({
+  //         item: data,
+  //         loaded: 1
+  //       });
+  //     } else {
+  //       this.setState({
+  //         loaded: 2,
+  //         message: "No records..."
+  //       });
+  //     }
+  //   } catch (e) {
+  //     this.setState({
+  //       loaded: 2,
+  //       message: e.message
+  //     });
+  //   }
+  // }
+
+  async getData(id) {
     try {
-      const res = await fetch(sConfig.apiHost + "?id=" + id);
-      const data = await res.json();
+      const data = this.findInGallery(gallery, id);
       if (!!data && !!data.name) {
         this.setState({
           item: data,
@@ -96,7 +128,8 @@ class ItemDisplay extends React.Component {
     // console.log("mount: " + this.props.itemid);
     const isLocal = this.getLocalData(this.props.itemid);
     if (!isLocal) {
-      this.getRemoteData(this.props.itemid);
+      // this.getRemoteData(this.props.itemid);
+      this.getData(this.props.itemid);
     }
   }
 

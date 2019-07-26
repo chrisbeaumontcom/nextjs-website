@@ -1,6 +1,8 @@
 import Item from "./Item";
 import fetch from "isomorphic-unfetch";
 import sConfig from "../config";
+const selected = require("../data/selected-paintings.json");
+const variations = require("../data/still-life-with-variations.json");
 
 class ItemList extends React.Component {
   constructor(props) {
@@ -19,10 +21,28 @@ class ItemList extends React.Component {
     this.setState({ itemView: true });
   };
 
-  async getRemoteData(gallerySlug) {
+  // async getRemoteData(gallerySlug) {
+  //   try {
+  //     const res = await fetch(sConfig.apiHost + "?gid=" + gallerySlug);
+  //     const data = await res.json();
+
+  //     if (data.length > 0) {
+  //       this.setState({
+  //         items: data,
+  //         loaded: true
+  //       });
+  //       this.saveGallery(gallerySlug, data);
+  //     }
+  //   } catch (e) {}
+  // }
+
+  async getData(gallerySlug) {
     try {
-      const res = await fetch(sConfig.apiHost + "?gid=" + gallerySlug);
-      const data = await res.json();
+      let gallery = selected;
+      if (gallerySlug === "still-life-with-variations") {
+        gallery = variations;
+      }
+      const data = gallery;
 
       if (data.length > 0) {
         this.setState({
@@ -31,7 +51,9 @@ class ItemList extends React.Component {
         });
         this.saveGallery(gallerySlug, data);
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error("Error:" + e.message);
+    }
   }
 
   saveGallery = (galleryName, data) => {
@@ -101,7 +123,8 @@ class ItemList extends React.Component {
   componentDidMount() {
     const isLocal = this.getLocalData(this.props.galleryShow);
     if (!isLocal) {
-      this.getRemoteData(this.props.galleryShow);
+      // this.getRemoteData(this.props.galleryShow);
+      this.getData(this.props.galleryShow);
     }
   }
 

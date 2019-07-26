@@ -42,7 +42,7 @@ const Footer = props => (
                   <a>Privacy Policy</a>
                 </Link>
               </li>
-              <li>Version: api 1.0</li>
+              <li>Version: local data 1.0</li>
               <li>
                 <Link href={"http://instagram.com/chrisbeaumontcom"}>
                   <a>
