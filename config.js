@@ -1,4 +1,5 @@
 const sConfig = {
-  apiHost: "https://api.chrisbeaumont.com/api"
+  apiHost:
+    "https://us-central1-eastern-store-247804.cloudfunctions.net/listWorks"
 };
 export default sConfig;
