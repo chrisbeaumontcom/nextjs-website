@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import fetch from "isomorphic-unfetch";
 import { useState } from "react";
+import sConfig from "../config";
 
 const ContactForm = () => {
   const [sendProcess, sendForm] = useState("");
@@ -30,7 +31,7 @@ const ContactForm = () => {
           setSubmitting(false);
           sendForm("[sending...]");
 
-          fetch("https://cb-api.chrisbeaumont.now.sh/api/contact.js", {
+          fetch(sConfig.apiHost + "/contact.js", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -65,7 +66,7 @@ const ContactForm = () => {
           <form className="form" onSubmit={handleSubmit}>
             <div className={formwrap}>
               <div className="form-group">
-                <span>Email</span>
+                <span>Email *</span>
                 <input
                   className="form-control"
                   type="email"
@@ -77,7 +78,7 @@ const ContactForm = () => {
                 {errors.Email && touched.Email && errors.Email}
               </div>
               <div className="form-group">
-                <span>Name</span>
+                <span>Name *</span>
                 <input
                   className="form-control"
                   type="text"
