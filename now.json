@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "Chris WebSite",
+  "alias": "www.chrisbeaumont.com",
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "routes": [
+    { "src": "/detail/(?<id>[a-z-]+[0-9]{1,3})", "dest": "/detail?id=$id" },
+    { "src": "/gallery/(?<id>[a-z-]+)", "dest": "/gallery?id=$id" }
+  ]
+}
