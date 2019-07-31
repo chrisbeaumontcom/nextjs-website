@@ -3,7 +3,8 @@ export function itemSlug(name, id) {
     name
       .toLowerCase()
       .replace(/ /g, "-")
-      .replace(/,/g, "") +
+      .replace(/,/g, "")
+      .replace(/:/g, "") +
     "-" +
     id
   );
