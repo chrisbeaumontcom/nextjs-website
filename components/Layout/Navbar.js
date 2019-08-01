@@ -5,7 +5,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  DropdownItem,
+  DropdownToggle,
+  DropdownMenu,
+  UncontrolledDropdown
 } from "reactstrap";
 
 export default class NavBar extends React.Component {
@@ -13,13 +17,20 @@ export default class NavBar extends React.Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.toggleDrop = this.toggleDrop.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      dropdownOpen: false
     };
   }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
+    });
+  }
+  toggleDrop() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
     });
   }
   render() {
@@ -32,9 +43,27 @@ export default class NavBar extends React.Component {
 
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink href="/gallery">Selected Paintings</NavLink>
-                </NavItem>
+                <UncontrolledDropdown
+                  inNavbar
+                  nav
+                  isOpen={this.state.dropdownOpen}
+                  toggle={this.toggleDrop}
+                >
+                  <DropdownToggle nav caret>
+                    Gallery
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem tag="a" href="/gallery/selected-paintings">
+                      Selected Paintings
+                    </DropdownItem>
+                    <DropdownItem
+                      tag="a"
+                      href="/gallery/still-life-with-variations"
+                    >
+                      Variations 2017
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
                 <NavItem>
                   <NavLink href="/cv">Curriculum Vitae</NavLink>
                 </NavItem>
