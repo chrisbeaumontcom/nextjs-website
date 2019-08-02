@@ -9,25 +9,39 @@ div.carousel-item img {
   width: 100%;
   height: auto;
 }
-
-.cross-fade-leave {
-  opacity: 1;
+/*
+images thumb pages
+}*/
+div.itembox {
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 15px;
+  position: relative;
+}
+div.textbox {
+  position: relative;
+}
+div.enlarge {
+  text-align: right;
+  font-size: 10px;
+}
+h4 {
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 2px;
+  padding-left: 15px;
+  padding-top: 0;
+}
+p.itemp {
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.cross-fade-leave.cross-fade-leave-active {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-enter {
-  opacity: 0;
-}
-
-.cross-fade-enter.cross-fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-height {
-  transition: height 0.5s ease-in-out;
+@media only screen and (min-width: 650px) {
+  div.itembox {
+    padding: 15px;
+  }
 }
