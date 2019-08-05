@@ -3,10 +3,6 @@ import ItemDisplay from "../components/ItemDisplay";
 import { readItemSlug, slugToTitle } from "../helpers/utils";
 
 const regex = /^[a-z-]+\d{1,2}$/;
-// const testInput = (val, rgx) => {
-//   return rgx.test(val);
-// };
-//let pageTitle = "Detail";
 
 const pageContent = itemid => <ItemDisplay itemid={itemid} />;
 

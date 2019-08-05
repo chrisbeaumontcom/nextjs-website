@@ -31,7 +31,7 @@ const ContactForm = () => {
           setSubmitting(false);
           sendForm("[sending...]");
 
-          fetch(sConfig.apiHost + "/contact.js", {
+          fetch(sConfig.apiContact + "/contact.js", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
