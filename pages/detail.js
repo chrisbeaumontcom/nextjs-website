@@ -1,18 +1,18 @@
 import Layout from "../components/Layout/Layout";
-import ItemDisplay from "../components/ItemDisplay";
+import Item from "../components/Item";
 import { readItemSlug, slugToTitle } from "../helpers/utils";
 
 const regex = /^[a-z-]+\d{1,2}$/;
 
-const pageContent = itemid => <ItemDisplay itemid={itemid} />;
+const pageContent = itemid => <Item itemid={itemid} />;
 
 class Detail extends React.Component {
   static async getInitialProps({ query }) {
     const urlslug =
-      !!query.id && regex.test(query.id) ? query.id : "not-found-4"; // && testInput(query.id, regex)
+      !!query.id && regex.test(query.id) ? query.id : "not-found-4";
 
     const itemid = readItemSlug(urlslug);
-    //console.log("detail.js - itemid:" + itemid);
+
     const title = slugToTitle(query.id);
     return {
       itemid,

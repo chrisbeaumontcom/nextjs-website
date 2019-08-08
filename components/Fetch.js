@@ -1,43 +1,32 @@
-import { Component } from "react";
+import { useState, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import sConfig from "../config";
 
-class Fetch extends Component {
-  constructor(props) {
-    super(props);
-  }
-  state = {
-    loaded: false,
-    error: false,
-    items: []
-  };
+export default function Fetch(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+  const [items, setItems] = useState([]);
 
-  async getRemoteData(gallerySlug) {
+  async function getRemoteData(gallerySlug) {
     try {
       const res = await fetch(sConfig.apiHost + "?gid=" + gallerySlug);
       const data = await res.json();
 
       if (data.length) {
-        this.setState({
-          items: data,
-          loaded: true
-        });
-        this.saveGallery(gallerySlug, data);
+        setLoaded(true);
+        setItems(data);
+        saveGallery(gallerySlug, data);
       } else {
-        this.setState({
-          error: true,
-          loaded: false
-        });
+        setError(true);
+        setLoaded(false);
       }
     } catch (e) {
-      this.setState({
-        error: true,
-        loaded: false
-      });
+      setError(true);
+      setLoaded(false);
     }
   }
 
-  saveGallery = (galleryName, data) => {
+  function saveGallery(galleryName, data) {
     const newGallery = {
       name: galleryName,
       items: data
@@ -68,9 +57,9 @@ class Fetch extends Component {
     } catch (e) {
       return false;
     }
-  };
+  }
 
-  getLocalData = gallerySlug => {
+  function getLocalData(gallerySlug) {
     try {
       const data = sessionStorage.getItem("app-gallery-data");
       if (data) {
@@ -84,10 +73,8 @@ class Fetch extends Component {
           });
 
           if (found !== undefined && found.items) {
-            this.setState({
-              items: found.items,
-              loaded: true
-            });
+            setLoaded(true);
+            setItems(found.items);
             return true;
           }
         } else {
@@ -99,17 +86,14 @@ class Fetch extends Component {
     } catch (e) {
       return false;
     }
-  };
+  }
 
-  componentDidMount() {
-    const isLocal = this.getLocalData(this.props.galleryShow);
+  useEffect(() => {
+    const isLocal = getLocalData(props.galleryShow);
     if (!isLocal) {
-      this.getRemoteData(this.props.galleryShow);
+      getRemoteData(props.galleryShow);
     }
-  }
+  }, []);
 
-  render() {
-    return this.props.children(this.state);
-  }
+  return props.children({ loaded, error, items });
 }
-export default Fetch;
