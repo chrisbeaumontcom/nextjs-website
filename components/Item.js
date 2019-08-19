@@ -67,7 +67,10 @@ export default function Item(props) {
   async function getRemoteData(id) {
     try {
       const res = await fetch(sConfig.apiHost + "?id=" + id);
+      //const arrData = await res.json();
+      //const data = arrData[0];
       const data = await res.json();
+      // console.log(data);
       if (!!data && !!data.name) {
         setItem(data);
         setLoaded(1);
@@ -88,6 +91,8 @@ export default function Item(props) {
       getRemoteData(props.itemid);
     }
   }, []);
+
+  // {/* item.galleries[0].name.toLowerCase().replace(/ /g, "-") */}
 
   return (
     <div className="container">
@@ -110,18 +115,19 @@ export default function Item(props) {
       )}
       {loaded === 1 && (
         <div className="row">
-          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 detailbox">
-            <h3>
-              <Link
-                href={
-                  "/gallery/" +
-                  item.galleries[0].name.toLowerCase().replace(/ /g, "-")
-                }
-              >
-                <a className="gallerylink">{item.galleries[0].name}</a>
-              </Link>
-            </h3>
-          </div>
+          {!!item.gallery && (
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 detailbox">
+              <h3>
+                <Link
+                  href={
+                    "/gallery/" + item.gallery.toLowerCase().replace(/ /g, "-")
+                  }
+                >
+                  <a className="gallerylink">{item.gallery}</a>
+                </Link>
+              </h3>
+            </div>
+          )}
           <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 detailbox">
             <img
               src={item.url.replace("/image/upload/", "/image/upload/w_700/")}
