@@ -1,9 +1,10 @@
 module.exports = {
   env: {
-    es6: true
+    browser: true
   },
   extends: "eslint:recommended",
   globals: { React: "writable" },
+  parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
       jsx: true
