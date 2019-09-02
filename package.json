@@ -29,5 +29,9 @@
     "react-loader-spinner": "^2.3.0",
     "react-transition-group": "^1.2.1",
     "reactstrap": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-plugin-react": "^7.14.3"
   }
 }
