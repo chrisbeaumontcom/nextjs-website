@@ -1,6 +1,7 @@
 import Layout from "../components/Layout/Layout";
 import Item from "../components/Item";
 import { readItemSlug, slugToTitle } from "../helpers/utils";
+import PropTypes from "prop-types";
 
 const regex = /^[a-z-]+\d{1,2}$/;
 
@@ -31,5 +32,10 @@ class Detail extends React.Component {
     );
   }
 }
+
+Detail.propTypes = {
+  title: PropTypes.string,
+  itemid: PropTypes.string
+};
 
 export default Detail;

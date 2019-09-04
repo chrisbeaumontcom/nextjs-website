@@ -3,6 +3,7 @@ import sConfig from "../config";
 import { itemSlug } from "../helpers/utils";
 import PrevAndNext from "./PrevAndNext";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 export default function Item(props) {
   const [loaded, setLoaded] = useState(0);
@@ -168,3 +169,7 @@ export default function Item(props) {
     </div>
   );
 }
+
+Item.propTypes = {
+  itemid: PropTypes.string
+};

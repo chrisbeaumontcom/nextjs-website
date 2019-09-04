@@ -2,6 +2,7 @@ import Items from "./Items";
 import Fetch from "./Fetch";
 import Loading from "./Loading";
 import Error from "./Error";
+import PropTypes from "prop-types";
 
 export default function ItemList(props) {
   return (
@@ -18,3 +19,7 @@ export default function ItemList(props) {
     </div>
   );
 }
+
+ItemList.propTypes = {
+  galleryShow: PropTypes.string
+};

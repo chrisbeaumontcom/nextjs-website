@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "./Header";
 import NavBar from "./Navbar";
 import Footer from "./Footer";
+import PropTypes from "prop-types";
 
 const layoutStyle = {
   // margin: 20,
@@ -21,7 +22,7 @@ const Layout = props => (
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       <link
         href="https://fonts.googleapis.com/css?family=Quicksand:300&display=swap"
@@ -54,5 +55,10 @@ const Layout = props => (
     </div>
   </div>
 );
+
+Layout.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.any
+};
 
 export default Layout;

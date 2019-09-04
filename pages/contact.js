@@ -3,9 +3,9 @@ import ContactForm from "../components/ContactForm";
 
 const pageTitle = "Contact";
 
-function createMarkup() {
-  return { __html: content };
-}
+// function createMarkup() {
+//   return { __html: content };
+// }
 
 const pageContent = (
   <div className="container">

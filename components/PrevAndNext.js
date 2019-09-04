@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 const PrevAndNext = props => {
   return (
@@ -23,6 +24,11 @@ const PrevAndNext = props => {
       </div>
     </div>
   );
+};
+
+PrevAndNext.propTypes = {
+  pandn: PropTypes.array,
+  imgurl: PropTypes.string
 };
 
 export default PrevAndNext;

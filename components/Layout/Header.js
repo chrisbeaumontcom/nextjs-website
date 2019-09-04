@@ -1,5 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 class Header extends React.Component {
   constructor(props) {
@@ -93,4 +94,7 @@ class Header extends React.Component {
   }
 }
 
+Header.propTypes = {
+  title: PropTypes.string
+};
 export default Header;

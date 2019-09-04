@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import ItemList from "../components/ItemList";
+import PropTypes from "prop-types";
 
 const regex = /^[a-z-]+$/;
 const testInput = (val, rgx) => {
@@ -30,5 +31,9 @@ class Gallery extends React.Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  title: PropTypes.string
+};
 
 export default Gallery;

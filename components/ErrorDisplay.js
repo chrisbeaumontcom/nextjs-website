@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const ErrorDisplay = props => {
   const status = props.errorCode
     ? `An error [${props.errorCode}] occurred on server`
@@ -38,5 +40,7 @@ const ErrorDisplay = props => {
     </div>
   );
 };
-
+ErrorDisplay.propTypes = {
+  errorCode: PropTypes.number
+};
 export default ErrorDisplay;

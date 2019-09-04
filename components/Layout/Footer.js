@@ -1,6 +1,6 @@
 import Link from "next/link";
 const d = new Date();
-const Footer = props => (
+const Footer = () => (
   <div className="container-fluid">
     <div className="container">
       <footer>
