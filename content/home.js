@@ -35,7 +35,7 @@ hr {
 </style>
 
 <div class="img-content">
-<a href="/gallery/still-life-with-variations"><img src="/static/img/olsen-gallery-2017.jpg" alt="Olsen Gallery 2017"/></a>
+<a href="http://www.olsengallery.com/ex-works.php?exhibition_id=619" target="_blank" title="Link"><img src="/static/img/olsen-gallery-2017.jpg" alt="Olsen Gallery 2017"/></a>
   <p><em>Still Life with Geranium</em>, Oil on Linen, 2017</p>
 </div>
 <h2><em>Still Life with Variations</em></h2>
@@ -153,7 +153,7 @@ Monash University Faculty Gallery Caulfield<br />
  <p>Solo Exhibition <a href="http://www.bendigoartgallery.com.au/Exhibitions/Past_Exhibitions/2006_Exhibition_Archive/Christopher_Beaumont"
  title="Link to Bendigo Art Gallery">The Bendigo Art Gallery</a><br />
  Bendigo VIC 13 May - 18 June 2006<br />
- <a href="/media/3205/list_of_works_bendigo_2006.pdf" target="_blank" title="PDF Documemt">List of works</a>
+ <a href="/static/docs/list_of_works_bendigo_2006.pdf" target="_blank" title="PDF Documemt">List of works</a>
  </p>
 
 <p>
