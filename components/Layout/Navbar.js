@@ -13,23 +13,33 @@ export default class NavBar extends React.Component {
           <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
             <Nav>
               <Nav.Item>
-                <Link href="/">Home</Link>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
               </Nav.Item>
             </Nav>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
               <Nav>
                 <Nav.Item>
-                  <Link href="/gallery/selected-paintings">Selected Paintings</Link>
+                  <Link href="/gallery/selected-paintings">
+                    <a>Selected Paintings</a>
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link href="/gallery/still-life-with-variations">Variations 2017</Link>
+                  <Link href="/gallery/still-life-with-variations">
+                    <a>Variations 2017</a>
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link href="/cv">Curriculum Vitae</Link>
+                  <Link href="/cv">
+                    <a>Curriculum Vitae</a>
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link href="/contact">Contact</Link>
+                  <Link href="/contact">
+                    <a>Contact</a>
+                  </Link>
                 </Nav.Item>
               </Nav>
             </Navbar.Collapse>
