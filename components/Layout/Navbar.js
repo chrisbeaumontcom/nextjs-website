@@ -1,4 +1,5 @@
-import { Container, Row, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import Link from 'next/link';
 
 export default class NavBar extends React.Component {
   constructor(props) {
@@ -11,32 +12,42 @@ export default class NavBar extends React.Component {
         <Container>
           <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
             <Nav>
-              <Navbar.Brand href="/">Home</Navbar.Brand>
+              <Nav.Item>
+                <Link href="/">Home</Link>
+              </Nav.Item>
             </Nav>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse
-              id="basic-navbar-nav"
-              className="justify-content-end"
-            >
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
               <Nav>
-                <NavDropdown title="Gallery" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/gallery/selected-paintings">
-                    Selected Paintings
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/gallery/still-life-with-variations">
-                    Variations 2017
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Nav.Link href="/cv">Curriculum Vitae</Nav.Link>
-                <Nav.Link href="/contact">Contact</Nav.Link>
+                <Nav.Item>
+                  <Link href="/gallery/selected-paintings">Selected Paintings</Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Link href="/gallery/still-life-with-variations">Variations 2017</Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Link href="/cv">Curriculum Vitae</Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Link href="/contact">Contact</Link>
+                </Nav.Item>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
         </Container>
-        <style scoped jsx>{`
+        <style scoped>{`
           .navcontainer {
             background-color: #343a40;
+          }
+          .nav-item {
+            padding:4px 10px;
+          }
+          .nav-item a {
+            color: #aaaaaa;
+          }
+          .nav-item a:hover {
+            text-decoration:none;
+            color: #eeeeee;
           }
         `}</style>
       </div>

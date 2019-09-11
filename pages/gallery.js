@@ -1,6 +1,6 @@
-import Layout from "../components/Layout/Layout";
-import ItemList from "../components/ItemList";
-import PropTypes from "prop-types";
+import Layout from '../components/Layout/Layout';
+import ItemList from '../components/ItemList';
+import PropTypes from 'prop-types';
 
 const regex = /^[a-z-]+$/;
 const testInput = (val, rgx) => {
@@ -11,10 +11,7 @@ const pageContent = data => <ItemList galleryShow={data} />;
 
 class Gallery extends React.Component {
   static async getInitialProps({ query }) {
-    const title =
-      !!query.id && testInput(query.id, regex)
-        ? query.id
-        : "selected-paintings";
+    const title = !!query.id && testInput(query.id, regex) ? query.id : 'selected-paintings';
     return {
       title
     };
@@ -23,10 +20,7 @@ class Gallery extends React.Component {
   render() {
     return (
       <div>
-        <Layout
-          title={this.props.title.replace(/-/g, " ")}
-          content={pageContent(this.props.title)}
-        />
+        <Layout title={this.props.title.replace(/-/g, ' ')} content={pageContent(this.props.title)} />
       </div>
     );
   }
