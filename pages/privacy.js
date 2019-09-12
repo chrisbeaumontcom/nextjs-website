@@ -1,41 +1,17 @@
-import Layout from "../components/Layout/Layout";
+import { RichText } from 'prismic-reactjs';
+import PropTypes from 'prop-types';
+import { Client } from '../prismic-configuration';
 
-// class Privacy extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
+import Layout from '../components/Layout/Layout';
 
-//   render() {
-//     const pageTitle = "Privacy";
+function Privacy(props) {
+  // console.log(JSON.stringify(props.document));
 
-//     const pageContent = (
-//       <div>
-//         <p>
-//           See <a href="https://policies.google.com/privacy">Google</a>,{" "}
-//           <a href="https://www.facebook.com/privacy/explanation">Facebook</a>{" "}
-//           etc......
-//         </p>
-//       </div>
-//     );
-
-//     return (
-//       <div>
-//         <Layout title={pageTitle} content={pageContent} />
-//       </div>
-//     );
-//   }
-// }
-
-function Privacy() {
-  const pageTitle = "Privacy";
+  const pageTitle = 'Privacy';
 
   const pageContent = (
     <div>
-      <p>
-        See <a href="https://policies.google.com/privacy">Google</a>,{" "}
-        <a href="https://www.facebook.com/privacy/explanation">Facebook</a>{" "}
-        etc......
-      </p>
+      <RichText render={props.document.data.content} />
     </div>
   );
 
@@ -45,5 +21,29 @@ function Privacy() {
     </div>
   );
 }
+
+Privacy.getInitialProps = async function({ req }) {
+  const pageData = await Privacy.getDoc(req);
+  // if (process.browser) window.prismic.setupEditButton();
+  return {
+    // State variable that hold the queried data - doc for page info
+    document: pageData.doc
+  };
+};
+Privacy.getDoc = async function(req) {
+  try {
+    // Use the function to get a single document for page
+    const doc = await Client(req).getSingle('page_item');
+
+    return { doc };
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+Privacy.propTypes = {
+  document: PropTypes.any
+};
 
 export default Privacy;
