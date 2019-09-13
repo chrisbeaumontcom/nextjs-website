@@ -46,6 +46,13 @@ p.itemp {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+.itembox p {
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 div.itemcell {
   padding-left: 4px;
   padding-right: 4px;
@@ -61,6 +68,11 @@ ul.cv li {
   list-style-type: none;
   color: #333333;
   font-size: 0.8rem;
+}
+img.home {
+  float: right;
+  width: 300px;
+  height: auto;
 }
 @media only screen and (min-width: 650px) {
   div.itembox {

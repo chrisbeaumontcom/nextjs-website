@@ -13,15 +13,15 @@ const htmlSerializer = function(type, element, content, children, key) {
   switch (type) {
     // Add a class to paragraph elements
     case Elements.paragraph:
-      props = { className: 'home' };
+      props = { className: 'cv' };
       return React.createElement('p', propsWithUniqueKey(props, key), children);
     case Elements.list:
-      props = { className: 'home' };
+      props = { className: 'cv' };
       return React.createElement('ul', propsWithUniqueKey(props, key), children);
     // Don't wrap images in a <p> tag
-    case Elements.image:
-      props = { src: element.url, alt: element.alt || '', className: 'home' };
-      return React.createElement('img', propsWithUniqueKey(props, key));
+    // case Elements.image:
+    //   props = { src: element.url, alt: element.alt || '' };
+    //   return React.createElement('img', propsWithUniqueKey(props, key));
     // Return null to stick with the default behavior
     default:
       return null;

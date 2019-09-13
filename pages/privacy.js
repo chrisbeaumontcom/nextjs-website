@@ -1,19 +1,14 @@
-import { RichText } from 'prismic-reactjs';
 import PropTypes from 'prop-types';
 import { Client } from '../prismic-configuration';
-
 import Layout from '../components/Layout/Layout';
+import PageContentCV from '../components/PageContentCV';
+
+const pageType = 'pagecontent';
+const pageUID = 'privacy';
 
 function Privacy(props) {
-  // console.log(JSON.stringify(props.document));
-
-  const pageTitle = 'Privacy';
-
-  const pageContent = (
-    <div>
-      <RichText render={props.document.data.content} />
-    </div>
-  );
+  const pageTitle = 'Privacy Policy';
+  const pageContent = <PageContentCV title={props.document.data.title} content={props.document.data.content} />;
 
   return (
     <div>
@@ -30,11 +25,12 @@ Privacy.getInitialProps = async function({ req }) {
     document: pageData.doc
   };
 };
+
 Privacy.getDoc = async function(req) {
   try {
     // Use the function to get a single document for page
-    const doc = await Client(req).getSingle('page_item');
-
+    const doc = await Client(req).getByUID(pageType, pageUID);
+    // console.log(JSON.stringify(doc));
     return { doc };
   } catch (error) {
     console.error(error);

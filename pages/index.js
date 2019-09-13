@@ -29,7 +29,7 @@ Home.getBlogHome = async function(req) {
     //const document = await Client(req).getSingle('blog_home');
     // Make a query to get the blog posts organized in descending chronological order
     const response = await Client(req).query(Prismic.Predicates.at('document.type', 'home_item'), {
-      orderings: '[my.home_item.date desc]'
+      orderings: '[my.home_item.order]'
     });
     return { response };
   } catch (error) {
