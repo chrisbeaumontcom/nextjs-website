@@ -39,7 +39,7 @@ Privacy.getDoc = async function(req) {
 };
 
 Privacy.propTypes = {
-  document: PropTypes.any
+  document: PropTypes.object
 };
 
 export default Privacy;

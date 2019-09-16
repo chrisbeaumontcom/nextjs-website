@@ -1,41 +1,43 @@
-import Layout from "../components/Layout/Layout";
-import Item from "../components/Item";
-import { readItemSlug, slugToTitle } from "../helpers/utils";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { Client } from '../prismic-configuration';
+import Layout from '../components/Layout/Layout';
+import DisplayItem from '../components/DisplayItem';
 
-const regex = /^[a-z-]+\d{1,2}$/;
+const regex = /^[a-z-]+$/;
 
-const pageContent = itemid => <Item itemid={itemid} />;
-
-class Detail extends React.Component {
-  static async getInitialProps({ query }) {
-    const urlslug =
-      !!query.id && regex.test(query.id) ? query.id : "not-found-4";
-
-    const itemid = readItemSlug(urlslug);
-
-    const title = slugToTitle(query.id);
-    return {
-      itemid,
-      title
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Layout
-          title={this.props.title}
-          content={pageContent(this.props.itemid)}
-        />
-      </div>
-    );
-  }
+function Detail(props) {
+  const pageTitle = 'Detail';
+  const pageContent = <DisplayItem artwork={props.artwork} />; //
+  return (
+    <div>
+      <Layout title={pageTitle} content={pageContent} />
+    </div>
+  );
 }
 
+Detail.getInitialProps = async function({ req, query }) {
+  const idSlug = !!query.id && regex.test(query.id) ? query.id : 'not-found-4';
+
+  const listWork = await Detail.getItem(req, idSlug);
+  // if (process.browser) window.prismic.setupEditButton();
+  // console.log(listWork.response);
+  return {
+    artwork: listWork.response
+  };
+};
+
+Detail.getItem = async function(req, uid) {
+  try {
+    const response = await Client(req).getByUID('artwork', uid);
+    return { response };
+  } catch (error) {
+    // console.error(error);
+    return error;
+  }
+};
+
 Detail.propTypes = {
-  title: PropTypes.string,
-  itemid: PropTypes.string
+  artwork: PropTypes.object
 };
 
 export default Detail;

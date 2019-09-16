@@ -1,33 +1,60 @@
-import Layout from '../components/Layout/Layout';
-import ItemList from '../components/ItemList';
+import Prismic from 'prismic-javascript';
 import PropTypes from 'prop-types';
+import { Client } from '../prismic-configuration';
+import Layout from '../components/Layout/Layout';
+import ListItems from '../components/ListItems';
 
 const regex = /^[a-z-]+$/;
 const testInput = (val, rgx) => {
   return rgx.test(val);
 };
 
-const pageContent = data => <ItemList galleryShow={data} />;
-
-class Gallery extends React.Component {
-  static async getInitialProps({ query }) {
-    const title = !!query.id && testInput(query.id, regex) ? query.id : 'selected-paintings';
-    return {
-      title
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Layout title={this.props.title.replace(/-/g, ' ')} content={pageContent(this.props.title)} />
+function List(props) {
+  const pageTitle = 'Home';
+  const pageContent = (
+    <div className="container">
+      <div className="row">
+        <ListItems id={props.id} works={props.works} />
       </div>
-    );
-  }
+    </div>
+  );
+  return (
+    <div>
+      <Layout title={pageTitle} content={pageContent} />
+    </div>
+  );
 }
 
-Gallery.propTypes = {
-  title: PropTypes.string
+List.getInitialProps = async function({ req, query }) {
+  const id = !!query.id && testInput(query.id, regex) ? query.id : 'selected';
+
+  const listWorks = await List.getList(req, id);
+  // if (process.browser) window.prismic.setupEditButton();
+  // console.log(listWorks.response.results);
+  // console.log(simpleList(listWorks.response.results));
+  // console.log(saveGallery(id, simpleList(listWorks.response.results)));
+
+  return {
+    id,
+    works: listWorks.response.results
+  };
 };
 
-export default Gallery;
+List.getList = async function(req, tag) {
+  try {
+    const response = await Client(req).query(Prismic.Predicates.at('document.tags', [tag]), {
+      orderings: '[my.artwork.order]'
+    });
+    return { response };
+  } catch (error) {
+    // console.error(error);
+    return error;
+  }
+};
+
+List.propTypes = {
+  id: PropTypes.string,
+  works: PropTypes.array
+};
+
+export default List;

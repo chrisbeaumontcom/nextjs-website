@@ -15,7 +15,7 @@ export default function HomeItems(props) {
       <style jsx>{`
         img.blurb {
           float: right;
-          width: 300px;
+          max-width: 300px;
           height: auto;
           margin: 10px;
         }

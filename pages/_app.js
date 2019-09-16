@@ -5,12 +5,6 @@ import { trackPageView } from '../helpers/ga.js';
 //import GalleryContext from "../components/GalleryContext";
 
 class MyApp extends App {
-  // state = {
-  //   galleryLoaded: false,
-  //   galleryItems: null,
-  //   itemDetails: null,
-  //   itemShow: false
-  // };
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 

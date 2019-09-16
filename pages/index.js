@@ -25,21 +25,18 @@ Home.getInitialProps = async function({ req }) {
 };
 Home.getBlogHome = async function(req) {
   try {
-    // Use the function to get a single document for home
-    //const document = await Client(req).getSingle('blog_home');
-    // Make a query to get the blog posts organized in descending chronological order
     const response = await Client(req).query(Prismic.Predicates.at('document.type', 'home_item'), {
       orderings: '[my.home_item.order]'
     });
     return { response };
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return error;
   }
 };
 
 Home.propTypes = {
-  posts: PropTypes.any
+  posts: PropTypes.array
 };
 
 export default Home;

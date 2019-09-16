@@ -26,17 +26,18 @@ div.enlarge {
   font-size: 10px;
 }
 h4 {
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: italic;
   margin-bottom: 2px;
-  padding-left: 15px;
+  padding-left: 0;
   padding-top: 0;
 }
+/*
 h4.title {
   font-size: 1.2em;
   font-style: italic;
   margin-bottom: 2px;
-  padding-left: 15px;
+  padding-left: 0px;
   padding-top: 0;
 }
 p.itemp {
@@ -53,6 +54,7 @@ p.itemp {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+*/
 div.itemcell {
   padding-left: 4px;
   padding-right: 4px;
@@ -69,11 +71,7 @@ ul.cv li {
   color: #333333;
   font-size: 0.8rem;
 }
-img.home {
-  float: right;
-  width: 300px;
-  height: auto;
-}
+
 @media only screen and (min-width: 650px) {
   div.itembox {
     padding: 15px;
