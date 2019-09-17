@@ -20,7 +20,7 @@ const htmlSerializer = function(type, element, content, children, key) {
       return React.createElement('ul', propsWithUniqueKey(props, key), children);
     // Don't wrap images in a <p> tag
     // case Elements.image:
-    //   props = { src: element.url, alt: element.alt || '' };
+    //   props = { src: element.url, alt: element.alt || '', className: 'home' };
     //   return React.createElement('img', propsWithUniqueKey(props, key));
     // Return null to stick with the default behavior
     default:
