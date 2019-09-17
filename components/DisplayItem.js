@@ -80,32 +80,38 @@ export default function DispayItem(props) {
     <div className="container">
       <div className="row">
         <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 detailbox">
-          <img className="card-img-top lrg" src={sizeImage(doc.data.image_link)} alt={RichText.asText(doc.data.title)} />
+          <img className="card-img-top artwork" src={sizeImage(doc.data.image_link)} alt={RichText.asText(doc.data.title)} />
           {loadedPandN && <PrevAndNext pandn={prevnext} imgurl={doc.data.image_link} />}
         </div>
-        <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 detailtext">
           <h4 className="title">{RichText.asText(doc.data.title)}</h4>
           <RichText render={doc.data.details} />
           <p>{doc.data.year}</p>
           {doc.tags.map((tag, index) => (
-            <Link key={index} href={'/gallery/' + tag}>
-              <a>{getGalleryName(tag, galleries)}</a>
-            </Link>
+            <p key={index}>
+              <Link href={'/gallery/' + tag}>
+                <a>{getGalleryName(tag, galleries)}</a>
+              </Link>
+            </p>
           ))}
         </div>
       </div>
       <style scoped>{`
-        img.lrg {
-          width: 100%;
-          max-width: 700px;
-          height: auto;
-        }
         div.detailbox {
           padding-left: 0;
           padding-right: 0;
         }
+        div.detailbox img.artwork {
+          width: 100%;
+          max-width: 700px;
+          height: auto;
+        }
         a.gallerylink {
           color: black;
+        }
+        div.detailtext p {
+          margin:1px;
+          padding:1px;
         }
       `}</style>
     </div>
