@@ -46,21 +46,6 @@ export default class NavBar extends React.Component {
             </Navbar.Collapse>
           </Navbar>
         </Container>
-        <style scoped>{`
-          .navcontainer {
-            background-color: #343a40;
-          }
-          .nav-item {
-            padding:4px 10px;
-          }
-          .nav-item a {
-            color: #aaaaaa;
-          }
-          .nav-item a:hover {
-            text-decoration:none;
-            color: #eeeeee;
-          }
-        `}</style>
       </div>
     );
   }
