@@ -1,10 +1,11 @@
 import { RichText } from 'prismic-reactjs';
 import Link from 'next/link';
+import LazyLoad from 'react-lazy-load';
 
 //import Error from './Error';
 
 function sizeImage(url) {
-  return url.replace('/image/upload/', '/image/upload/w_530,q_auto:best/');
+  return url.replace('/image/upload/', '/image/upload/w_530,f_auto,q_auto:best/');
 }
 
 function linkUrl(val) {
@@ -60,11 +61,13 @@ export default function ListItems(props) {
   return data.map((doc, index) => (
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12" key={index}>
       <div className="itembox">
-        <Link href={linkUrl(doc.uid)}>
-          <a>
-            <img className="card-img-top sml" src={sizeImage(doc.data.image_link)} alt={RichText.asText(doc.data.title)} />
-          </a>
-        </Link>
+        <LazyLoad debounce={false} offsetVertical={300}>
+          <Link href={linkUrl(doc.uid)}>
+            <a>
+              <img className="card-img-top sml" src={sizeImage(doc.data.image_link)} alt={RichText.asText(doc.data.title)} />
+            </a>
+          </Link>
+        </LazyLoad>
         <h4 className="title">{RichText.asText(doc.data.title)}</h4>
         <RichText render={doc.data.details} />
         <p>{doc.data.year}</p>

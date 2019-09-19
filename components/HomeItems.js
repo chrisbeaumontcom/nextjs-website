@@ -1,4 +1,5 @@
 import { RichText } from 'prismic-reactjs';
+import LazyLoad from 'react-lazy-load';
 
 export default function HomeItems(props) {
   const data = props.data;
@@ -7,7 +8,9 @@ export default function HomeItems(props) {
     <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 home-post" key={index}>
       <h2>
         {RichText.asText(doc.data.title)}
-        <img src={doc.data.blurb_image.url} alt={doc.data.blurb_image.alt} />
+        <LazyLoad debounce={false} offsetVertical={300}>
+          <img src={doc.data.blurb_image.url} alt={doc.data.blurb_image.alt} />
+        </LazyLoad>
       </h2>
       <RichText render={doc.data.blurb} />
 
