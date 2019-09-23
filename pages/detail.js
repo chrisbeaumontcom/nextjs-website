@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import { Client } from '../prismic-configuration';
 import Layout from '../components/Layout/Layout';
 import DisplayItem from '../components/DisplayItem';
+import { RichText } from 'prismic-reactjs';
 
 const regex = /^[a-z-]+$/;
 
 function Detail(props) {
-  const pageTitle = 'Detail';
+  let pageTitle = RichText.asText(props.artwork.data.title);
+
   const pageContent = <DisplayItem artwork={props.artwork} />; //
   return (
     <div>
