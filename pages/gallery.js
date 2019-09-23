@@ -3,16 +3,24 @@ import PropTypes from 'prop-types';
 import { Client } from '../prismic-configuration';
 import Layout from '../components/Layout/Layout';
 import ListItems from '../components/ListItems';
+import { getGalleryName } from '../helpers/utils';
+import sConfig from '../config';
 
+const galleries = sConfig.galleries;
 const regex = /^[a-z-]+$/;
 const testInput = (val, rgx) => {
   return rgx.test(val);
 };
 
 function List(props) {
-  const pageTitle = 'Home';
+  const pageTitle = getGalleryName(props.id, galleries);
   const pageContent = (
     <div className="container">
+      <div className="row">
+        <div>
+          <h3>{pageTitle}</h3>
+        </div>
+      </div>
       <div className="row">
         <ListItems id={props.id} works={props.works} />
       </div>
