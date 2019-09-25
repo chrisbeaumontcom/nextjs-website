@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 const d = new Date();
 const Footer = () => (
   <div className="container-fluid">
@@ -8,11 +8,7 @@ const Footer = () => (
           <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center footboximg">
             <Link href="/">
               <a>
-                <img
-                  src="/static/img/banner02lemons.jpg"
-                  alt="Still life with Lemons"
-                  className="imgfooter"
-                />
+                <img src="/static/img/banner02lemons.jpg" alt="Still life with Lemons" className="imgfooter" />
               </a>
             </Link>
           </div>
@@ -33,24 +29,20 @@ const Footer = () => (
             <h2>Questions?</h2>
             <ul>
               <li>
-                <Link href={"/contact"}>
+                <Link href={'/contact'}>
                   <a>Contact</a>
                 </Link>
               </li>
               <li>
-                <Link href={"/privacy"}>
+                <Link href={'/privacy'}>
                   <a>Privacy Policy</a>
                 </Link>
               </li>
-              <li>Version: api 1.0</li>
+              <li>Version: 1.0 [Next.js / Prismic CMS / Now Serverless / GitHub]</li>
               <li>
-                <Link href={"http://instagram.com/chrisbeaumontcom"}>
+                <Link href={'http://instagram.com/chrisbeaumontcom'}>
                   <a>
-                    <img
-                      src="/static/img/soc-insta-30.png"
-                      alt="Instagram"
-                      title="Instagram"
-                    />
+                    <img src="/static/img/soc-insta-30.png" alt="Instagram" title="Instagram" />
                   </a>
                 </Link>
               </li>
