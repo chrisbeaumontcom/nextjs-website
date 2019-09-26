@@ -8,10 +8,6 @@ function sizeImage(url) {
   return url.replace('/image/upload/', '/image/upload/w_530,f_auto,q_auto:best/');
 }
 
-function linkUrl(val) {
-  return '/detail/' + val;
-}
-
 function simpleList(objList) {
   let ar = [];
   if (objList.length > 0) {
@@ -62,7 +58,7 @@ export default function ListItems(props) {
     <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12" key={index}>
       <div className="itembox">
         <LazyLoad debounce={false} offsetVertical={300}>
-          <Link href={linkUrl(doc.uid)}>
+          <Link href={{ pathname: '/detail', query: { id: doc.uid } }} as={`/detail/${doc.uid}`}>
             <a>
               <img className="card-img-top sml" src={sizeImage(doc.data.image_link)} alt={RichText.asText(doc.data.title)} />
             </a>

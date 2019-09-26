@@ -29,22 +29,37 @@ const Footer = () => (
             <h2>Questions?</h2>
             <ul>
               <li>
-                <Link href={'/contact'}>
+                <Link href="/contact">
                   <a>Contact</a>
                 </Link>
               </li>
               <li>
-                <Link href={'/privacy'}>
+                <Link href="/privacy">
                   <a>Privacy Policy</a>
                 </Link>
               </li>
-              <li>Version: 1.0 [Next.js / Prismic CMS / Now Serverless / GitHub]</li>
               <li>
-                <Link href={'http://instagram.com/chrisbeaumontcom'}>
-                  <a>
-                    <img src="/static/img/soc-insta-30.png" alt="Instagram" title="Instagram" />
-                  </a>
-                </Link>
+                Version: 1.0 <br />
+                <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
+                  Next.js
+                </a>
+                /
+                <a href="https://prismic.io/" rel="noopener noreferrer">
+                  Prismic CMS
+                </a>
+                /
+                <a href="https://zeit.co/" rel="noopener noreferrer">
+                  Zeit Now
+                </a>
+                /
+                <a href="https://github.com/" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="http://instagram.com/chrisbeaumontcom">
+                  <img src="/static/img/soc-insta-30.png" alt="Instagram" title="Instagram" />
+                </a>
               </li>
             </ul>
           </div>

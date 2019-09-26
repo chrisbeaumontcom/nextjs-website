@@ -26,7 +26,7 @@ export default class NavBar extends React.Component {
               <Nav>
                 {galleries.map((el, index) => (
                   <Nav.Item key={index}>
-                    <Link href={`/gallery/${el.slug}`}>
+                    <Link href={{ pathname: '/gallery', query: { id: el.slug } }} as={`/gallery/${el.slug}`}>
                       <a>{el.name}</a>
                     </Link>
                   </Nav.Item>

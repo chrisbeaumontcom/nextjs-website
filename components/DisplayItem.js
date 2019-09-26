@@ -17,7 +17,7 @@ function sizeImage(url) {
 export default function DispayItem(props) {
   const [loadedPandN, setLoadPandN] = useState(false);
   const [prevnext, setPrevNext] = useState([]);
-  const baseurl = '/detail/';
+  // const baseurl = '/detail/';
   const doc = props.artwork;
 
   function checkGalleries(data, id) {
@@ -25,13 +25,14 @@ export default function DispayItem(props) {
     // search in gallery by slug and load prev and next into state
     const findItemById = (items, id) => {
       let foundItem = false;
+
       for (var i = 0; i < items.length; i++) {
         if (items[i] === id) {
           const p = i === 0 ? items.length - 1 : i - 1;
-          const prev = baseurl + items[p];
+          const prev = items[p];
           const n = i === items.length - 1 ? 0 : i + 1;
-          const next = baseurl + items[n];
-          const current = baseurl + items[i];
+          const next = items[n];
+          const current = items[i];
           const prevAndNext = [prev, current, next];
           setPrevNext(prevAndNext);
           setLoadPandN(true);
@@ -74,7 +75,7 @@ export default function DispayItem(props) {
     if (sessionStorage) {
       getLocalData(doc.uid);
     }
-  }, []);
+  }, [doc]);
 
   return (
     <div className="container">
@@ -89,7 +90,7 @@ export default function DispayItem(props) {
           <p>{doc.data.year}</p>
           {doc.tags.map((tag, index) => (
             <p key={index}>
-              <Link href={'/gallery/' + tag}>
+              <Link href={{ pathname: '/gallery', query: { id: tag } }} as={`/gallery/${tag}`}>
                 <a>{getGalleryName(tag, galleries)}</a>
               </Link>
             </p>
