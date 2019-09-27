@@ -1,5 +1,5 @@
-import Carousel from 'react-bootstrap/Carousel';
 import Link from 'next/link';
+import Carousel from 'react-bootstrap/Carousel';
 import PropTypes from 'prop-types';
 
 export default function Header(props) {

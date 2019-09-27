@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import { trackPageView } from '../helpers/ga.js';
+import NProgress from 'nprogress';
 //import GalleryContext from "../components/GalleryContext";
 
 class MyApp extends App {
@@ -15,9 +16,15 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    //console.log("_app.js");
+    Router.onRouteChangeStart = () => {
+      NProgress.start();
+    };
     Router.onRouteChangeComplete = url => {
       trackPageView(url);
+      NProgress.done();
+    };
+    Router.onRouteChangeError = () => {
+      NProgress.done();
     };
   }
 
