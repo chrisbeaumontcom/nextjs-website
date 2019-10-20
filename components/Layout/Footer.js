@@ -1,5 +1,5 @@
 import Link from 'next/link';
-const d = new Date();
+
 const Footer = () => (
   <div className="container-fluid">
     <div className="container">
@@ -15,7 +15,7 @@ const Footer = () => (
           <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6 footbox">
             <h2>Christopher Beaumont</h2>
             <p>
-              &copy;{d.getFullYear()} Christopher Beaumont
+              &copy;{new Date().getFullYear()} Christopher Beaumont
               <br />
               All rights reserved
               <br />

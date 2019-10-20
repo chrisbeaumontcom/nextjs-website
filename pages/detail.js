@@ -22,7 +22,6 @@ Detail.getInitialProps = async function({ req, query }) {
 
   const listWork = await Detail.getItem(req, idSlug);
   // if (process.browser) window.prismic.setupEditButton();
-  // console.log(listWork.response);
   return {
     artwork: listWork.response
   };

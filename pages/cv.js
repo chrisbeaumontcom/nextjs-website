@@ -21,16 +21,13 @@ CV.getInitialProps = async function({ req }) {
   const pageData = await CV.getDoc(req);
   // if (process.browser) window.prismic.setupEditButton();
   return {
-    // State variable that hold the queried data - doc for page info
     document: pageData.doc
   };
 };
 
 CV.getDoc = async function(req) {
   try {
-    // Use the function to get a single document for page
     const doc = await Client(req).getByUID(pageType, pageUID);
-    // console.log(JSON.stringify(doc));
     return { doc };
   } catch (error) {
     console.error(error);

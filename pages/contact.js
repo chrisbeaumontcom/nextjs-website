@@ -1,11 +1,7 @@
-import Layout from "../components/Layout/Layout";
-import ContactForm from "../components/ContactForm";
+import Layout from '../components/Layout/Layout';
+import ContactForm from '../components/ContactForm';
 
-const pageTitle = "Contact";
-
-// function createMarkup() {
-//   return { __html: content };
-// }
+const pageTitle = 'Contact';
 
 const pageContent = (
   <div className="container">
@@ -19,11 +15,7 @@ const pageContent = (
         <ContactForm />
       </div>
       <div className="col-lg-6 text-center">
-        <img
-          className="port"
-          src="/static/img/serge_photo_300x305.jpg"
-          alt="Serge poppies"
-        />
+        <img className="port" src="/static/img/serge_photo_300x305.jpg" alt="Serge poppies" />
       </div>
     </div>
     <style jsx>{`

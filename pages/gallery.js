@@ -38,10 +38,6 @@ List.getInitialProps = async function({ req, query }) {
 
   const listWorks = await List.getList(req, id);
   // if (process.browser) window.prismic.setupEditButton();
-  // console.log(listWorks.response.results);
-  // console.log(simpleList(listWorks.response.results));
-  // console.log(saveGallery(id, simpleList(listWorks.response.results)));
-
   return {
     id,
     works: listWorks.response.results

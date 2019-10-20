@@ -18,8 +18,7 @@ Home.getInitialProps = async function({ req }) {
   const home = await Home.getBlogHome(req);
   // if (process.browser) window.prismic.setupEditButton();
   return {
-    // State variables that hold the two different queried data. doc for homepage info, posts for the blog posts
-    //doc: home.document,
+    // State variable for the home blog posts
     posts: home.response.results
   };
 };
