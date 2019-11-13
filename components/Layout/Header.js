@@ -28,13 +28,13 @@ export default function Header(props) {
                 <img className="d-block w-100" src="/static/img/banner01zucchinis.jpg" alt="First slide" />
               </Carousel.Item>
               <Carousel.Item>
-                <img className="d-block w-100" src="/static/img/banner02lemons.jpg" alt="Third slide" />
+                <img className="d-block w-100" src="/static/img/banner02lemons.jpg" alt="Second slide" />
               </Carousel.Item>
               <Carousel.Item>
                 <img className="d-block w-100" src="/static/img/banner03artichokes.jpg" alt="Third slide" />
               </Carousel.Item>
               <Carousel.Item>
-                <img className="d-block w-100" src="/static/img/banner04cherries.jpg" alt="Third slide" />
+                <img className="d-block w-100" src="/static/img/banner04cherries.jpg" alt="Fourth slide" />
               </Carousel.Item>
             </Carousel>
           </div>
@@ -79,5 +79,5 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
 };
