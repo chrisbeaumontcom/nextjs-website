@@ -39,7 +39,7 @@ const Footer = () => (
                 </Link>
               </li>
               <li>
-                Version: 1.0 <br />
+                Version: 1.1 <br />
                 <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
                   Next.js
                 </a>
