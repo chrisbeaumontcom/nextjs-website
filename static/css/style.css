@@ -22,6 +22,30 @@ div.carousel-item img {
   width: 100%;
   height: auto;
 }
+
+/*
+home page items
+}*/
+.home-post img {
+  float: right;
+  max-width: 300px;
+  height: auto;
+  margin: 10px;
+  border: 1px solid #dadada;
+}
+.home-post hr {
+  clear: both;
+}
+@media only screen and (max-width: 600px) {
+  .home-post h2 {
+    font-size: 1.5rem;
+  }
+  .home-post img {
+    float: none;
+    clear: both;
+    margin: 10px auto;
+  }
+}
 /*
 images thumb pages
 }*/

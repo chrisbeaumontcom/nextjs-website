@@ -17,15 +17,21 @@ function Home(props) {
 Home.getInitialProps = async function({ req }) {
   const home = await Home.getBlogHome(req);
   // if (process.browser) window.prismic.setupEditButton();
+  //
+  // const a = home.response.results;
+  // a.forEach(el => {
+  //   console.log(el.data.blurb);
+  //   console.log('---------------');
+  // });
   return {
     // State variable for the home blog posts
-    posts: home.response.results
+    posts: home.response.results,
   };
 };
 Home.getBlogHome = async function(req) {
   try {
     const response = await Client(req).query(Prismic.Predicates.at('document.type', 'home_item'), {
-      orderings: '[my.home_item.order]'
+      orderings: '[my.home_item.order]',
     });
     return { response };
   } catch (error) {
@@ -35,7 +41,7 @@ Home.getBlogHome = async function(req) {
 };
 
 Home.propTypes = {
-  posts: PropTypes.array
+  posts: PropTypes.array,
 };
 
 export default Home;

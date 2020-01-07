@@ -1,5 +1,13 @@
 import { RichText } from 'prismic-reactjs';
 import LazyLoad from 'react-lazy-load';
+import { linkResolver, hrefResolver } from '../prismic-configuration';
+import { default as NextLink } from 'next/link';
+
+const customLink = (type, element, content, children, index) => (
+  <NextLink key={element.data.id + index} as={linkResolver(element.data)} href={hrefResolver(element.data)}>
+    <a>{content}</a>
+  </NextLink>
+);
 
 export default function HomeItems(props) {
   const data = props.data;
@@ -12,31 +20,8 @@ export default function HomeItems(props) {
           <img src={doc.data.blurb_image.url} alt={doc.data.blurb_image.alt} />
         </LazyLoad>
       </h2>
-      <RichText render={doc.data.blurb} />
-
+      <RichText render={doc.data.blurb} linkResolver={linkResolver} serializeHyperlink={customLink} />
       <hr />
-      <style jsx>{`
-        .home-post img {
-          float: right;
-          max-width: 300px;
-          height: auto;
-          margin: 10px;
-          border: 1px solid #dadada;
-        }
-        .home-post hr {
-          clear: both;
-        }
-        @media only screen and (max-width: 600px) {
-          .home-post h2 {
-            font-size: 1.5rem;
-          }
-          .home-post img {
-            float: none;
-            clear: both;
-            margin: 10px auto;
-          }
-        }
-      `}</style>
     </div>
   ));
 }

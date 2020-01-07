@@ -13,16 +13,33 @@ export const accessToken = '';
 // Manages links to internal Prismic documents
 // Modify as your project grows to handle any new routes you've made
 export const linkResolver = doc => {
-  if (doc.type === 'post') {
-    return `/blog/${doc.uid}`;
+  // console.log(doc);
+  if (doc.link_type === 'Document') {
+    if (doc.type === 'artwork') {
+      return `/detail/${doc.slug}`;
+    }
+    if (doc.type === 'gallerypage') {
+      return `/gallery/${doc.slug}`;
+    }
+  }
+  if (doc.link_type === 'Web') {
+    return doc.url;
   }
   return '/';
 };
 
 // Additional helper function for Next/Link components
 export const hrefResolver = doc => {
-  if (doc.type === 'post') {
-    return `/post?uid=${doc.uid}`;
+  if (doc.link_type === 'Document') {
+    if (doc.type === 'artwork') {
+      return `/detail?id=${doc.slug}`;
+    }
+    if (doc.type === 'gallerypage') {
+      return `/gallery?id=${doc.slug}`;
+    }
+  }
+  if (doc.link_type === 'Web') {
+    return doc.url;
   }
   return '/';
 };
