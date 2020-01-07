@@ -3,11 +3,18 @@ import LazyLoad from 'react-lazy-load';
 import { linkResolver, hrefResolver } from '../prismic-configuration';
 import { default as NextLink } from 'next/link';
 
-const customLink = (type, element, content, children, index) => (
-  <NextLink key={element.data.id + index} as={linkResolver(element.data)} href={hrefResolver(element.data)}>
-    <a>{content}</a>
-  </NextLink>
-);
+const customLink = (type, element, content, children, index) => {
+  if (type === 'Document') {
+    return (
+      <NextLink key={element.data.id + index} as={linkResolver(element.data)} href={hrefResolver(element.data)}>
+        <a>{content}</a>
+      </NextLink>
+    );
+  }
+  if (type === 'Web') {
+    return <a href={element.data.url}>{content}</a>;
+  }
+};
 
 export default function HomeItems(props) {
   const data = props.data;
