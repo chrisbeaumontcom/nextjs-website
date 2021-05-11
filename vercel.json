@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "src": "/detail/(?<id>[a-z-]+)", "dest": "/detail?id=$id" },
+    { "src": "/gallery/(?<id>[a-z-]+)", "dest": "/gallery?id=$id" }
+  ]
+}

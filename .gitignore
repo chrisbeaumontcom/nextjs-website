@@ -5,6 +5,6 @@ variables.env
 test/
 park/
 .next/
-.nowignore
+.vercelignore
 .env
 
